@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Cookies from 'js-cookie';
 
@@ -72,7 +72,7 @@ const Login = () => {
                     {isLoading ? <button disabled type='button' className='btn bg-main text-white ms-auto d-block'> <i className='fas fa-spinner fa-spin'></i> </button>
                         : <button type='submit' className='btn bg-main text-white ms-auto d-block'>login</button>
                     }
-
+                    <Link  to={'/forgetpassword'}><h5 className='text-muted forgetPass'>Forgot Your Password ?</h5></Link>
 
                 </form>
             </div>

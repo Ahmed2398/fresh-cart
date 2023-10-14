@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import logo from '../../Assets/images/freshcart-logo.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import {AuthContext} from "../../Contexts/AuthContext";
+import CategoriesDropdown from "../Categories/CategoriesDropdown";
 
 function Navbar() {
 let navigate = useNavigate();
@@ -35,13 +36,17 @@ function logOut(){
                             <Link className="nav-link" to={'/cart'} >Cart</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-link" to={'/wishlist'} >Wishlist</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link className="nav-link" to={'/orders'} >All Orders</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to={'/products'}  >Products</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to={'/categories'} >Categories</Link>
+                            {/*<Link className="nav-link" to={'/categories'} >Categories</Link>*/}
+                            <CategoriesDropdown   />
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to={'brands'} >Brands</Link>

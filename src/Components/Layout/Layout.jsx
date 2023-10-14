@@ -7,6 +7,7 @@ import AuthContextProvider from "../../Contexts/AuthContext";
 import {ReactQueryDevtools} from "react-query/devtools";
 import {QueryClient, QueryClientProvider} from "react-query";
 import Footer from "../Footer/Footer";
+import Products from "../Products/Products";
 
 const Layout = () => {
     let queryClient = new QueryClient()
@@ -17,7 +18,7 @@ const Layout = () => {
             <AuthContextProvider>
 
             <Navbar/>
-                <div className="container">
+                <div className="container mt-5 py-5">
                     <Outlet />
                 </div>
                 <Offline>
@@ -27,6 +28,7 @@ const Layout = () => {
                 </Offline>
                 <Footer />
             </AuthContextProvider>
+                {/*<Products/>*/}
                 <ReactQueryDevtools position='bottom-right'/>
             </QueryClientProvider>
         </>

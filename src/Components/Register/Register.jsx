@@ -54,6 +54,8 @@ const Register = () => {
         onSubmit: register,
         validationSchema
     })
+
+
     return (
         <>
             <div className="w-75 m-auto my-5">
@@ -75,7 +77,7 @@ const Register = () => {
                     {formik.errors.email && formik.touched.password ?  <div className="alert alert-danger">{formik.errors.password}</div> : null }
 
                     <label htmlFor="rePassword">RePassword: </label>
-                    <input onChange={formik.handleChange} value={formik.values.rePassword}  onBlur={formik.handleBlur} className='form-control mb-3' type="password" id='rePassword' name='rePassword' />
+                    <input onChange={formik.handleChange} value={formik.values.rePassword}  onBlur={formik.handleBlur} className='form-control mb-3' type="password" id='rePassword' name='rePassword'  />
                     {formik.errors.email && formik.touched.rePassword ?  <div className="alert alert-danger">{formik.errors.rePassword}</div> : null }
 
                     <label htmlFor="phone">Phone: </label>

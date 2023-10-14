@@ -12,6 +12,12 @@
 body{
   font-family: var(--font-family) !important;
 }
+.navbar .nav-link{
+  font-weight:600;
+}
+.navbar .nav-link:hover{
+  color: var(--main-color);
+}
 .rating-color
 {
   color: var(--rating-color);
@@ -27,7 +33,7 @@ a , a:hover{
 .product:hover
 {
   box-shadow: var(--shadow);
-  border: solid 1px var(--main-color);
+  /*border: solid 1px var(--main-color);*/
 }
 .product .btn
 {
@@ -56,4 +62,66 @@ a , a:hover{
 .bg-main-light
 {
   background-color: var(--light-color) !important;
+}
+.product{
+  border:none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  font-weight: 600;
+}
+.product a{
+  text-decoration: none;
+}
+.product h2{
+  font-size:1rem;
+  font-weight:bold;
+}
+.product h5{
+  font-weight: 600;
+}
+.page-link {
+  font-weight: 600;
+}
+.page-number{
+  color: var(--main-color) !important;
+}
+.productDetails{
+
+}
+.productDetails h2{
+  font-size: 24px;
+  color: var(--main-color) ;
+  font-weight:600;
+}
+.productDetails h5{
+  font-size: 24px;
+  color: var(--main-color) ;
+  font-weight:400;
+}
+.productDetails p{
+  color:#999;
+  font-weight: normal;
+}
+.productDetails span{
+  color: #999;
+  margin-right: 8px;
+  font-weight: 500;
+}
+ .image-details{
+  height: 450px;
+}
+ .category-shop img{
+   padding: 8px ;
+   width:100%;
+   height: 300px;
+ }
+ #categoriesDropdown{
+   background-color: var(--main-color);
+   border: none;
+ }
+
+.brands-shop{
+  border:none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  font-weight: 600;
+  margin: 12px 0;
 }
