@@ -17,9 +17,12 @@
     "react": "^18.2.0",
     "react-detect-offline": "^2.4.5",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-hot-toast": "^2.4.1",
     "react-image-magnify": "^2.7.4",
     "react-lazy-load-image-component": "^1.6.0",
+=======
+>>>>>>> origin/home-module
     "react-query": "^3.39.3",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
