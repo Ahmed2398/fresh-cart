@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
@@ -41,8 +40,8 @@ let routes = createBrowserRouter([
           { path: 'login', element: <Login /> },
           { path: 'register', element: <Register /> },
           { path: "forgetpassword", element: <ForgetPassword /> },
-          { path: "verifycode", element: <VerifyCode /> },
-          { path: "resetpassword", element: <ResetPassword /> },
+          { path: "verify", element: <VerifyCode /> },
+          { path: "resetPassword", element: <ResetPassword /> },
           {path: "wishlist", element: <Wishlist /> },
 
           { path: '*', element: <NotFound /> }

@@ -3,24 +3,29 @@ import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import * as Yup from "yup";
+
 const VerifyCode = () => {
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
-    let verifyCode = useFormik({
+    const validationSchema = Yup.object({
+        resetCode: Yup.string().required('Reset Code is required')
+    });
+
+    let formik = useFormik({
         initialValues : {
             "resetCode" : ""
         },
-        onSubmit: function( values ){
-            console.log('Submit',values);
-            verifyPassword( values );
-        }});
+        onSubmit: verifyCodeNumber,
+        validationSchema
+    });
 
-    async function verifyPassword(obj){
+    async function verifyCodeNumber(values){
         setLoading(true);
         try {
-            const {data} = await axios.post(`https://route-ecommerce.onrender.com/api/v1/auth/verifyResetCode`,obj)
+            const {data} = await axios.post(`https://route-ecommerce.onrender.com/api/v1/auth/verifyResetCode`,values)
             console.log(data);
             setLoading(false);
             if(data.status === 'Success'){
@@ -35,24 +40,24 @@ const VerifyCode = () => {
     }
 
     return(
-    <>
+        <>
 
 
-        <form onSubmit={verifyCode.handleSubmit}>
-            <div className="container my-5 py-5">
+            <form onSubmit={formik.handleSubmit}>
+                <div className="container my-5 py-5">
 
 
-                <label className='mt-5 fw-bolder' htmlFor="resetCode">Enter Reset Code</label>
-                <input onChange={verifyCode.handleChange} onBlur={verifyCode.handleBlur}  id="resetCode" type="text" name='resetCode' placeholder='Enter Reset Code' className='form-control my-2'  />
-                {verifyCode.errors.resetCode && verifyCode.touched.resetCode ?<div className='alert alert-danger text-center '>{ verifyCode.errors.resetCode }</div>:"" }
+                    <label className='mt-5 fw-bolder' htmlFor="resetCode">Enter Reset Code</label>
+                    <input onChange={formik.handleChange} onBlur={formik.handleBlur}  id="resetCode" type="text" name='resetCode' placeholder='Enter Reset Code' className='form-control my-2'  />
+                    {formik.errors.resetCode && formik.touched.resetCode ?<div className='alert alert-danger text-center '>{ formik.errors.resetCode }</div>:"" }
 
-                {loading ? <button type='button' className='btn btn-outline-success mt-3 fw-bolder'>
-                    <i className='fa-solid fa-spinner fa-spin text-success mx-2'></i>
-                </button> : <button disabled={!verifyCode.isValid } type='submit' className='btn btn-outline-success mt-3 fw-bolder'>Verify Code</button> }
-            </div>
-        </form>
-    </>
-)
+                    {loading ? <button type='button' className='btn btn-outline-success mt-3 fw-bolder'>
+                        <i className='fa-solid fa-spinner fa-spin text-success mx-2'></i>
+                    </button> : <button disabled={!formik.isValid } type='submit' className='btn btn-outline-success mt-3 fw-bolder'>Verify Code</button> }
+                </div>
+            </form>
+        </>
+    )
 };
 
 export default VerifyCode;
